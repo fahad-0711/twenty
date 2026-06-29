@@ -12,9 +12,9 @@ import {
 import { type FlatLogicFunction } from 'src/engine/metadata-modules/logic-function/types/flat-logic-function.type';
 import { findFlatLogicFunctionOrThrow } from 'src/engine/metadata-modules/logic-function/utils/find-flat-logic-function-or-throw.util';
 import { getLogicFunctionSubfolderForFromSource } from 'src/engine/metadata-modules/logic-function/utils/get-logic-function-subfolder-for-from-source';
-import { type UniversalFlatLogicFunction } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-logic-function.type';
 import { WorkspaceMigrationBuilderException } from 'src/engine/workspace-manager/workspace-migration/exceptions/workspace-migration-builder-exception';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
+import { type UniversalFlatLogicFunction } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-logic-function.type';
 
 @Injectable()
 export class LogicFunctionFromSourceHelperService {
@@ -61,11 +61,11 @@ export class LogicFunctionFromSourceHelperService {
       sourceHandlerPath: join(
         logicFunctionSubfolder,
         DEFAULT_SOURCE_HANDLER_PATH,
-      ),
+      ).replace(/\\/g, '/'),
       builtHandlerPath: join(
         logicFunctionSubfolder,
         DEFAULT_BUILT_HANDLER_PATH,
-      ),
+      ).replace(/\\/g, '/'),
     };
   }
 

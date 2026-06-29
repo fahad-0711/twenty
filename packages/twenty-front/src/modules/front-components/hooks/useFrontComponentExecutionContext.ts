@@ -73,10 +73,10 @@ export const useFrontComponentExecutionContext = ({
   );
 
   const navigate: FrontComponentHostCommunicationApi['navigate'] = async (
-    to,
-    params,
-    queryParams,
-    options,
+    to: any,
+    params?: any,
+    queryParams?: any,
+    options?: any,
   ) => {
     if (to === AppPath.RecordShowPage) {
       const targetObjectNameSingular = (
@@ -108,7 +108,7 @@ export const useFrontComponentExecutionContext = ({
   };
 
   const openSidePanelPage: FrontComponentHostCommunicationApi['openSidePanelPage'] =
-    async ({ page, pageTitle, pageIcon, shouldResetSearchState }) => {
+    async ({ page, pageTitle, pageIcon, shouldResetSearchState }: any) => {
       navigateSidePanel({
         page,
         pageTitle,
@@ -121,7 +121,7 @@ export const useFrontComponentExecutionContext = ({
     };
 
   const openCommandConfirmationModal: FrontComponentHostCommunicationApi['openCommandConfirmationModal'] =
-    async ({ title, subtitle, confirmButtonText, confirmButtonAccent }) => {
+    async ({ title, subtitle, confirmButtonText, confirmButtonAccent }: any) => {
       openConfirmationModal({
         caller: { type: 'frontComponent', frontComponentId },
         title,
@@ -184,7 +184,7 @@ export const useFrontComponentExecutionContext = ({
     };
 
   const updateProgress: FrontComponentHostCommunicationApi['updateProgress'] =
-    async (progress) => {
+    async (progress: any) => {
       if (!isDefined(commandMenuItemId)) {
         return;
       }
@@ -193,7 +193,7 @@ export const useFrontComponentExecutionContext = ({
     };
 
   const copyToClipboard: FrontComponentHostCommunicationApi['copyToClipboard'] =
-    async (text) => {
+    async (text: any) => {
       if (!isNonEmptyString(text)) {
         return;
       }

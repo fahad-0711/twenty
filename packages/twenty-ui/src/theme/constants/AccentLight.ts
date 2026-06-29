@@ -2,12 +2,12 @@ import * as RadixColors from '@radix-ui/colors';
 import { COLOR_LIGHT } from '@ui/theme/constants/ColorsLight';
 
 export const ACCENT_LIGHT = {
-  primary: COLOR_LIGHT.blue5,
-  secondary: COLOR_LIGHT.blue5,
-  tertiary: COLOR_LIGHT.blue3,
-  quaternary: COLOR_LIGHT.blue2,
-  accent3570: COLOR_LIGHT.blue8,
-  accent4060: COLOR_LIGHT.blue8,
+  primary: RadixColors.tealP3.teal9,
+  secondary: RadixColors.indigoP3.indigo9,
+  tertiary: RadixColors.tealP3.teal3,
+  quaternary: RadixColors.indigoP3.indigo2,
+  accent3570: RadixColors.tealP3.teal8,
+  accent4060: RadixColors.indigoP3.indigo8,
   accent1: RadixColors.indigoP3.indigo1,
   accent2: RadixColors.indigoP3.indigo2,
   accent3: RadixColors.indigoP3.indigo3,

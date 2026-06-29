@@ -17,6 +17,7 @@ import { WorkflowRunWidget } from '@/page-layout/widgets/workflow/components/Wor
 import { WorkflowVersionWidget } from '@/page-layout/widgets/workflow/components/WorkflowVersionWidget';
 import { RecordTableWidgetRenderer } from '@/page-layout/widgets/record-table/components/RecordTableWidgetRenderer';
 import { WorkflowWidget } from '@/page-layout/widgets/workflow/components/WorkflowWidget';
+import { VoiceHistoryTab } from '@/voice-journey/components/VoiceHistoryTab';
 import { WidgetType } from '~/generated-metadata/graphql';
 
 type WidgetContentRendererProps = {
@@ -26,6 +27,10 @@ type WidgetContentRendererProps = {
 export const WidgetContentRenderer = ({
   widget,
 }: WidgetContentRendererProps) => {
+  if (widget.id === 'person-widget-voice-history' || widget.title === 'Voice History') {
+    return <VoiceHistoryTab />;
+  }
+
   switch (widget.type) {
     case WidgetType.GRAPH:
       return <GraphWidgetRenderer widget={widget} />;

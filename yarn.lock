@@ -28782,6 +28782,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"calllive-ai@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "calllive-ai@workspace:."
+  dependencies:
+    "@nx/jest": "npm:22.7.5"
+    "@nx/js": "npm:22.7.5"
+    "@nx/react": "npm:22.7.5"
+    "@nx/storybook": "npm:22.7.5"
+    "@nx/vite": "npm:22.7.5"
+    "@nx/web": "npm:22.7.5"
+    "@types/react": "npm:^19.2.0"
+    "@types/react-dom": "npm:^19.2.0"
+    "@yarnpkg/types": "npm:^4.0.0"
+    concurrently: "npm:^8.2.2"
+    http-server: "npm:^14.1.1"
+    nx: "npm:22.7.5"
+    oxfmt: "npm:0.50.0"
+    tsx: "npm:^4.17.0"
+    verdaccio: "npm:^6.3.1"
+  languageName: unknown
+  linkType: soft
+
 "callsites@npm:^3.0.0, callsites@npm:^3.1.0":
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
@@ -54572,28 +54594,6 @@ __metadata:
     zapier-platform-cli: "npm:^19.0.0"
     zapier-platform-core: "npm:19.0.0"
     zod: "npm:^4.1.11"
-  languageName: unknown
-  linkType: soft
-
-"twenty@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "twenty@workspace:."
-  dependencies:
-    "@nx/jest": "npm:22.7.5"
-    "@nx/js": "npm:22.7.5"
-    "@nx/react": "npm:22.7.5"
-    "@nx/storybook": "npm:22.7.5"
-    "@nx/vite": "npm:22.7.5"
-    "@nx/web": "npm:22.7.5"
-    "@types/react": "npm:^19.2.0"
-    "@types/react-dom": "npm:^19.2.0"
-    "@yarnpkg/types": "npm:^4.0.0"
-    concurrently: "npm:^8.2.2"
-    http-server: "npm:^14.1.1"
-    nx: "npm:22.7.5"
-    oxfmt: "npm:0.50.0"
-    tsx: "npm:^4.17.0"
-    verdaccio: "npm:^6.3.1"
   languageName: unknown
   linkType: soft
 

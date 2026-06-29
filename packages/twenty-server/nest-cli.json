@@ -14,7 +14,7 @@
   "compilerOptions": {
     "builder": "swc",
     "typeCheck": false,
-    "watchAssets": true,
+    "watchAssets": false,
     "assets": [
       {
         "include": "engine/core-modules/logic-function/logic-function-resource/constants/seed-project/**",

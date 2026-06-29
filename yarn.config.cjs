@@ -3,7 +3,7 @@
 const { defineConfig, Yarn } = require('@yarnpkg/types');
 const semver = require('semver');
 
-const MONOREPO_ROOT_WORKSPACE = 'twenty';
+const MONOREPO_ROOT_WORKSPACE = 'calllive-ai';
 
 module.exports = defineConfig({
   async constraints({ Yarn }) {

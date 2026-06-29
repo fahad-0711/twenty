@@ -1,8 +1,8 @@
-name: twenty
+name: calllive-ai
 
 services:
   server:
-    image: twentycrm/twenty:${TAG:-latest}
+    image: callliveai/crm:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/twenty-server/.local-storage
     ports:
@@ -59,7 +59,7 @@ services:
     restart: always
 
   worker:
-    image: twentycrm/twenty:${TAG:-latest}
+    image: callliveai/crm:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/twenty-server/.local-storage
     command: ["yarn", "worker:prod"]

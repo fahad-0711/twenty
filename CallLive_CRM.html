@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CallLive AI CRM Launcher</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: #0D1117;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Aurora background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(99,102,241,0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(20,184,166,0.12) 0%, transparent 50%);
+      animation: aurora 8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes aurora {
+      0%   { transform: translate(0,0) scale(1); }
+      100% { transform: translate(2%,3%) scale(1.05); }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 24px;
+      padding: 48px 56px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 60px rgba(99,102,241,0.1), 0 24px 48px rgba(0,0,0,0.4);
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-ring {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #6366F1, #14b8a6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 0 30px rgba(99,102,241,0.4);
+      font-size: 36px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+      margin-bottom: 36px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .status-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      padding: 4px 0;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #14b8a6;
+      box-shadow: 0 0 6px #14b8a6;
+      flex-shrink: 0;
+    }
+
+    .btn-main {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #6366F1, #4f46e5);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(99,102,241,0.5);
+      background: linear-gradient(135deg, #7c7ff5, #6366F1);
+    }
+
+    .btn-main:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      margin-bottom: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.8);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .url-badge {
+      display: inline-block;
+      background: rgba(20,184,166,0.1);
+      border: 1px solid rgba(20,184,166,0.2);
+      color: #14b8a6;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+
+    .footer {
+      margin-top: 24px;
+      color: rgba(255,255,255,0.2);
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-ring">📞</div>
+    <h1>CallLive AI CRM</h1>
+    <p class="subtitle">Powered by Twenty CRM • v2.14.4</p>
+
+    <div class="status-box">
+      <div class="status-row"><span class="dot"></span> Backend running on port 3000</div>
+      <div class="status-row"><span class="dot"></span> Database connected (PostgreSQL)</div>
+      <div class="status-row"><span class="dot"></span> Redis cache active</div>
+    </div>
+
+    <a href="http://localhost:3000" target="_blank" class="btn-main">
+      🚀 Open CallLive AI CRM
+    </a>
+    <a href="http://localhost:3000/settings/general" target="_blank" class="btn-secondary">
+      ⚙️ Settings & Rebrand
+    </a>
+    <a href="http://localhost:3000/settings/admin" target="_blank" class="btn-secondary">
+      🛡️ Admin Panel
+    </a>
+
+    <div class="url-badge">localhost:3000</div>
+
+    <div class="footer">
+      Make sure Docker is running before opening.<br>
+      Run <strong>Start_CallLive_CRM.bat</strong> to start containers first.
+    </div>
+  </div>
+</body>
+</html>

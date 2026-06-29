@@ -23,7 +23,7 @@
     "yarn": ">=4.0.2"
   },
   "license": "AGPL-3.0",
-  "name": "twenty",
+  "name": "calllive-ai",
   "packageManager": "yarn@4.13.0",
   "resolutions": {
     "@remote-dom/react/@types/react": "^19.2.0",

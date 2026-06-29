@@ -149,6 +149,20 @@ const PERSON_PAGE_TABS = {
       },
     },
   },
+  voiceHistory: {
+    universalIdentifier: 'ba15bad6-8d8e-4949-9f37-3eb136524941',
+    ...TAB_PROPS.timeline,
+    title: 'Voice History',
+    icon: 'IconPhone',
+    position: 750,
+    widgets: {
+      voiceHistory: {
+        universalIdentifier: 'ba15bad6-8d8e-4949-9f37-3eb136524942',
+        ...WIDGET_PROPS.timeline,
+        title: 'Voice History',
+      },
+    },
+  },
 } as const satisfies Record<string, StandardPageLayoutTabConfig>;
 
 export const STANDARD_PERSON_PAGE_LAYOUT_CONFIG = {

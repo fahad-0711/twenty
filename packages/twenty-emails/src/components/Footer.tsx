@@ -18,45 +18,45 @@ export const Footer = ({ i18n }: FooterProps) => {
         <Column>
           <ShadowText>
             <Link
-              href="https://twenty.com/"
+              href="https://calllive.ai/"
               value={i18n._('Website')}
-              aria-label={i18n._("Visit Twenty's website")}
+              aria-label={i18n._("Visit CallLive AI's website")}
             />
           </ShadowText>
         </Column>
         <Column>
           <ShadowText>
             <Link
-              href="https://github.com/twentyhq/twenty"
+              href="https://github.com/callliveai/crm"
               value={i18n._('Github')}
-              aria-label={i18n._("Visit Twenty's GitHub repository")}
+              aria-label={i18n._("Visit CallLive AI's GitHub repository")}
             />
           </ShadowText>
         </Column>
         <Column>
           <ShadowText>
             <Link
-              href="https://docs.twenty.com/getting-started/introduction"
+              href="https://docs.calllive.ai/getting-started/introduction"
               value={i18n._('User guide')}
-              aria-label={i18n._("Read Twenty's user guide")}
+              aria-label={i18n._("Read CallLive AI's user guide")}
             />
           </ShadowText>
         </Column>
         <Column>
           <ShadowText>
             <Link
-              href="https://docs.twenty.com/"
+              href="https://docs.calllive.ai/"
               value={i18n._('Developers')}
-              aria-label={i18n._("Visit Twenty's developer documentation")}
+              aria-label={i18n._("Visit CallLive AI's developer documentation")}
             />
           </ShadowText>
         </Column>
       </Row>
       <ShadowText>
         <>
-          {i18n._('Twenty.com, Public Benefit Corporation')}
+          {i18n._('CallLive AI')}
           <br />
-          {i18n._('San Francisco / Paris')}
+          {i18n._('Bangalore, India')}
         </>
       </ShadowText>
     </Container>
