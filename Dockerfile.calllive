@@ -1,0 +1,48 @@
+# ===========================================================================
+# CallLive AI CRM — Custom Layer Dockerfile
+# Layers CallLive modules on top of the official Twenty image.
+# Usage:
+#   docker build -f Dockerfile.calllive -t callliveai/crm:latest .
+# ===========================================================================
+
+FROM twentycrm/twenty:latest
+
+USER root
+
+# Copy our custom backend modules into the compiled dist
+# These will be picked up by NestJS module registration in modules.module.ts
+COPY packages/twenty-server/src/modules/calllive-webhook/ /app/packages/twenty-server/src/modules/calllive-webhook/
+COPY packages/twenty-server/src/modules/calllive-database/ /app/packages/twenty-server/src/modules/calllive-database/
+COPY packages/twenty-server/src/modules/voice-journey/ /app/packages/twenty-server/src/modules/voice-journey/
+COPY packages/twenty-server/src/modules/real-estate-project/ /app/packages/twenty-server/src/modules/real-estate-project/
+COPY packages/twenty-server/src/modules/project-unit/ /app/packages/twenty-server/src/modules/project-unit/
+COPY packages/twenty-server/src/modules/site-visit/ /app/packages/twenty-server/src/modules/site-visit/
+
+# Copy modified modules.module.ts (registers our custom modules)
+COPY packages/twenty-server/src/modules/modules.module.ts /app/packages/twenty-server/src/modules/modules.module.ts
+
+# Copy modified page layout config (registers Voice History tab)
+COPY packages/twenty-server/src/engine/workspace-manager/twenty-standard-application/utils/page-layout-config/standard-person-page-layout.config.ts \
+     /app/packages/twenty-server/src/engine/workspace-manager/twenty-standard-application/utils/page-layout-config/standard-person-page-layout.config.ts
+
+# Copy frontend Voice Journey components into the built frontend
+COPY packages/twenty-front/src/modules/voice-journey/ /app/packages/twenty-server/dist/front/modules/voice-journey/
+
+# Copy modified frontend files
+COPY packages/twenty-front/src/modules/page-layout/widgets/components/WidgetContentRenderer.tsx \
+     /app/packages/twenty-server/dist/front/modules/page-layout/widgets/components/WidgetContentRenderer.tsx
+
+# Install ts-node for running migrations (not in production image by default)
+RUN if command -v npm > /dev/null 2>&1; then \
+      npm install -g ts-node tsconfig-paths typescript; \
+    elif command -v yarn > /dev/null 2>&1; then \
+      cd /app && yarn add ts-node tsconfig-paths; \
+    fi 2>/dev/null || true
+
+# Backup script
+COPY scripts/backup-db.sh /app/scripts/backup-db.sh
+RUN chmod +x /app/scripts/backup-db.sh
+
+USER 1000
+
+LABEL org.opencontainers.image.description="CallLive AI CRM — Twenty fork with voice-first real estate CRM features."
