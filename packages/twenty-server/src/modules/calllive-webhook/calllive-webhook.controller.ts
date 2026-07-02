@@ -19,7 +19,7 @@ import { DataSource } from 'typeorm';
 import { CallLiveWebhookValidator } from './calllive-webhook.validator';
 import { callLivePayloadSchema } from './dtos/calllive-payload.dto';
 
-@Controller('webhooks/calllive')
+@Controller('api/webhooks/calllive')
 export class CallLiveWebhookController {
   constructor(
     private readonly validator: CallLiveWebhookValidator,
